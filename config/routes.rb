@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  # Define a root_url for Devise
+  root "bookmarks#index"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
