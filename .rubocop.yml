@@ -1,0 +1,15 @@
+inherit_from: .rubocop_todo.yml
+
+Metrics/LineLength:
+  Max: 120
+
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/schema.rb
+  DisplayCopNames: true
+
+StringLiterals:
+  EnforcedStyle: double_quotes
