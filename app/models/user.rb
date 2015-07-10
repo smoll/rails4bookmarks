@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   # :recoverable, and :trackable
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
+
+  has_many :bookmarks
 end
