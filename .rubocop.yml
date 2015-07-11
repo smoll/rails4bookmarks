@@ -5,6 +5,7 @@ Metrics/LineLength:
 
 AllCops:
   Include:
+    - Gemfile
     - Rakefile
     - config.ru
   Exclude:

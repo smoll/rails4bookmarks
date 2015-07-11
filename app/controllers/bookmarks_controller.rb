@@ -2,10 +2,12 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!
+
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = current_user.bookmarks.all
   end
 
   # GET /bookmarks/1
@@ -15,7 +17,7 @@ class BookmarksController < ApplicationController
 
   # GET /bookmarks/new
   def new
-    @bookmark = Bookmark.new
+    @bookmark = current_user.bookmarks.new
   end
 
   # GET /bookmarks/1/edit
@@ -25,7 +27,7 @@ class BookmarksController < ApplicationController
   # POST /bookmarks
   # POST /bookmarks.json
   def create
-    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark = current_user.bookmarks.new(bookmark_params)
 
     respond_to do |format|
       if @bookmark.save
@@ -66,7 +68,9 @@ class BookmarksController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_bookmark
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = current_user.bookmarks.find_by(id: params[:id])
+    return @bookmark if @bookmark
+    redirect_to root_url, alert: "Bookmark not found."
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
