@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # Define a root_url for Devise
-  root "bookmarks#index"
+  # root "bookmarks#index"
+  root "site#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
