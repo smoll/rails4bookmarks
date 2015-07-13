@@ -32,6 +32,8 @@ gem "sdoc", "~> 0.4.0", group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem "devise", "~> 3.5.1"
+gem "zurb-foundation", "~> 4.3.2"
+gem "simple_form", "~> 3.0.0.rc"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
